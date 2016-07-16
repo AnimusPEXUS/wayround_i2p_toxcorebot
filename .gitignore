@@ -1,0 +1,12 @@
+*~
+*.pyc
+*.pyo
+*.so
+*.c
+#*#
+/*.egg-info
+/build
+/dist
+/MANIFEST
+/tests
+/demo/01/file.dat
