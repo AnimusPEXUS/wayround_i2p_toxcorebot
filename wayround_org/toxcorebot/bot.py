@@ -72,9 +72,9 @@ class Bot:
 
                     self._tox.callback_friend_request(self._friend_request_cb)
                     self._tox.callback_friend_message(self._friend_message_cb)
-                    self._tox.callback_self_connection_status(
-                        self._connection_status
-                        )
+                    #self._tox.callback_self_connection_status(
+                    #    self._connection_status
+                    #    )
 
                     for i in self._bootstrap_hosts:
                         _r = self._tox.bootstrap(*i)
