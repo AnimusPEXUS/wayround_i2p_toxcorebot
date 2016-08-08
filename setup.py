@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='wayround_org_toxcorebot',
-    version='0.1',
+    version='0.2',
     author='Alexey Gorshkov',
     author_email='animus@wayround.org',
     url='https://github.com/AnimusPEXUS/wayround_org_toxcorebot',

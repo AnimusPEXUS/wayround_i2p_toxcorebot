@@ -119,14 +119,14 @@ class Bot:
 
     def _friend_request_cb(self, obj, public_key, message):
         # if public_key in self._admin_keys:
-        print("got friend request")
+        # print("got friend request")
         r = self._tox.friend_add_norequest(public_key)
         self._tox.friend_send_message(
             r[0],
             0,
             b'Hello! This is bot. Wellcome! You have been added as a friend.'
             )
-        print("answered friend request")
+        # print("answered friend request")
         return
 
     def _friend_message_cb(self, obj, friend_number, type_, message):
@@ -137,7 +137,7 @@ class Bot:
         return
 
     def _friend_message_cb_t(self, obj, friend_number, type_, message):
-        print("got message")
+        # print("got message")
         cmd_line = wayround_org.utils.shlex.split(
             str(message, 'utf-8').splitlines()[0]
             )
@@ -154,7 +154,7 @@ class Bot:
                 commands=self._commands,
                 opts_and_args_list=cmd_line,
                 additional_data={
-                    'asker_addr': asker_addr,
+                    'asker_pkey': asker_addr,
                     'messages': messages
                     }
                 )
@@ -189,10 +189,11 @@ class Bot:
                 res['message']
                 )
 
-            self._tox.friend_send_message(
+            self._tox.friend_send_message_long_string(
                 friend_number,
                 0,
-                bytes(messages_text, 'utf-8')
+                messages_text,
+                'utf-8'
                 )
         return
 
@@ -208,5 +209,5 @@ class Bot:
             csn = 'TCP'
         else:
             csn = 'ERROR'
-        print("connection status now is: {}".format(csn))
+        # print("connection status now is: {}".format(csn))
         return
